@@ -1,0 +1,21 @@
+{% extends 'FoodyApp/food_app_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+    <section>
+        <div class="flex-container">
+            <form method="post">
+                {% csrf_token %}
+                <div>
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                </div>
+                {{ form.non_field_errors }}
+                <button class="primary-light-button" type="submit"> Add to Collection</button>
+            </form>
+            <hr />
+            <button class="primary-light-button" type="button" onclick=" location.href='{% url 'listFood' %}'">Back to Collection
+            </button>
+        </div>
+    </section>
+{% endblock %}

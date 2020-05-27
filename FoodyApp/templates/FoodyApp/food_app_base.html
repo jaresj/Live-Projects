@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %} <!-- must load static files on every template, even though it extends another template -->
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'FoodyApp/foody_style.css' %}">
+{% endblock %}
+
+{% block pagetop-css %} cover-foody {% endblock %}
+
+{% block page-title %}Foody App{% endblock %}
+{% block page-subtitle %}Get all your food news and nutrition here!{% endblock %}
+{% block button1 %}<a href="{% url 'foody' %}"class="contact-btn">Foody Home</a>{% endblock %}
+{% block button2 %}<a href="{% url 'listFood' %}" class="contact-btn">Nutrition</a>{% endblock %}
+{% block button3 %}<a class="contact-btn">API Service</a>{% endblock %}
+{% block button4 %}<a href="{% url 'FoodNews' %}" class="contact-btn">Food News</a>{% endblock %}
+
+{% block appcontent %}
+    {% block templatecontent %}{% endblock %} <!-- section that all the template specific content will render within -->
+{% endblock %}

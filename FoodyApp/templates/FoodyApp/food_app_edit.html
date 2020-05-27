@@ -1,0 +1,20 @@
+{% extends 'FoodyApp/food_app_base.html' %}
+{% load staticfiles %}
+
+{% block templatecontent %}
+<section>
+    <div class="flex-container">
+        <form method="post" class="form-group">
+            {%csrf_token%}
+            <table  class="table table-striped table-dark">
+                {{form.as_table}}
+            </table>
+            {{form.non_field_errors}}
+            <button class="adder-button" type="submit">Save</button>
+            <button class="adder-button" type="button" value="Delete Entry" onclick="location.href='{% url 'deleteFood' pk=pk %}'">Delete</button>
+        </form>
+        <hr/>
+        <button class="adder-button" type="button" onclick="location.href='{% url 'listFood' %}'">Back to List</button>
+    </div>
+</section>
+{% endblock %}

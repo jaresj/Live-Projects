@@ -1,0 +1,12 @@
+{% extends 'FoodyApp/food_app_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+<section>
+    <div class="flex-container wrapper news">
+        {% for article in articles%} <!-- Iterates through the array of articles -->
+            <!-- Creates a new line for each item, sets the href to the full url, gives the article title -->
+            <p><a href="{{article.url}}">{{article.title}}</a> </p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

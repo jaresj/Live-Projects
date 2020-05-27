@@ -1,0 +1,39 @@
+{% extends 'FoodyApp/food_app_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+<section>
+    <div class="flex-container foody">
+        <table>
+            <tr>
+                <th>Type</th>
+                <td>{{food.type}}</td>
+            </tr>
+            <tr>
+                <th>Calories</th>
+                <td>{{food.calories}}</td>
+            </tr>
+            <tr>
+                <th>Serving Size</th>
+                <td>{{food.serving_size}}</td>
+            </tr>
+            <tr>
+                <th>Protein</th>
+                <td>{{food.protein}}</td>
+            </tr>
+            <tr>
+                <th>Carbohydrates</th>
+                <td>{{food.carbohydrates}}</td>
+            </tr>
+            <tr>
+                <th>Fats</th>
+                <td>{{food.fats}}</td>
+            </tr>
+
+        </table>
+
+        <hr />
+
+        <button class="primary-bright-button" type="button" onclick=" location.href='{% url 'listFood' %}'">Back to Collection</button>
+    </div>
+</section>
+{% endblock %}

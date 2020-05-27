@@ -1,0 +1,18 @@
+{% extends 'FoodyApp/food_app_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+    <section>
+        <div class="flex-container">
+            <form method="post">
+                {% csrf_token %}
+                <!--alert user to confirm deletion of specific residency-->
+                <p>
+                    Are you sure you want to delete {{ foodItem.food }}
+                </p>
+                <button class="primary-light-button" type="submit">Delete</button>
+            </form>
+            <button class="primary-light-button" type="button" onclick=" location.href='{% url 'foody' %}'">Cancel
+            </button>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'FoodyApp/food_app_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+    <section>
+        <div class="flex-container foody" id=foodyCollectionPage>
+            <table class="table-striped">
+                <tr>
+                    <th class="col-md">Type</th>
+                    <th class="col-md">Calories</th>
+                    <th class="col-md">Serving Size</th>
+                    <th class="col-md">Protein</th>
+                    <th class="col-md">Carbohydrates</th>
+                    <th class="col-md">Fats</th>
+                    <th class="col-md"></th>
+
+                </tr>
+                {% for foodItem in foods %}     <!-- creates a new row for each food in the collection-->
+                    <tr>
+                        <td class="col-md">{{ foodItem.type }}</td>
+                        <td class="col-md">{{ foodItem.calories }}</td>
+                        <td class="col-md">{{ foodItem.serving_size }}</td>
+                        <td class="col-md">{{ foodItem.protein }}</td>
+                        <td class="col-md">{{ foodItem.carbohydrates }}</td>
+                        <td class="col-md">{{ foodItem.fats }}</td>
+                        <td class="col-md">
+                        <!--directs to details page with the selected instance-->
+
+                        </td>
+                        <td class="col-md"><a href="{{foodItem.pk}}/Details"><button class="primary-light-button" id="info-button">Details</button></a></td>    <!-- creates a link for that specific food item -->
+                        <td class = "col-md"><a href = "{{foodItem.pk}}/Edit">Edit/Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <button class="primary-bright-button" type="button" onclick="location.href='{% url 'createFoody' %}'">Add to Collection </button>
+        </div>
+    </section>
+{% endblock %}
